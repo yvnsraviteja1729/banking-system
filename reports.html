@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <meta charset="utf-8" >
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <title>Reportss</title>
+     <style media="screen">
+    body {
+    margin: 0;
+    min-width:300px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+#heading2{
+  font-size: 25px;
+  color:#777777;
+  text-align: center;
+}
+ .topnav {
+   overflow: hidden;
+   background-color: #333;
+ }
+
+ .topnav a {
+   float: right;
+   color: #f2f2f2;
+   text-align: center;
+   padding: 15px 15px;
+   text-decoration: none;
+   font-size: 20px;
+ }
+
+ .topnav a:hover {
+   background-color: #39F;
+   border-radius:5px;
+   color: white;
+ }
+
+ .heading{
+    color: #f2f2f2;
+    width:50%;
+    margin-top:5px;
+    text-align: center;
+    /* padding: 13px 20%; */
+   text-decoration: none;
+   font-size: 30px;
+   float:left;
+ }
+ #abcd{
+   text-align: center;
+   width: 70%;
+   background-color: #999;
+   border-radius: 10px;
+   color:white;
+   font-size: 20px;
+   text-transform: capitalize;
+   text-shadow: 5px;
+   margin-left: 15%;
+   float: left;
+   height: auto;
+ }
+ .container {
+   margin-left:15%;
+   margin-right: 15%;
+   margin-top: 5%;
+   /* display: flex; */
+   /* margin-bottom: 5%; */
+   /* width: 70%; */
+   background-color: #f2f2f2;
+   padding: 5px 20px 15px 20px;
+   border: 1px solid lightgrey;
+   border-radius: 3px;
+ }
+
+
+ input[type=submit]:hover {
+   background-color: #45d049;
+ }
+
+ input[type=submit]
+ {
+   background-color: #4C8F50;
+   color: white;
+   padding: 10px;
+   margin-left: 20%;
+   margin-right: 20%;
+   border: none;
+   width: 60%;
+   border-radius: 3px;
+   cursor: pointer;
+   font-size: 20px;
+ }
+ button{
+   display:none;
+ }
+textarea{
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  height: 200px;
+ /* padding: 12px; */
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ resize: vertical;
+}
+@media screen and (max-width: 800px) {
+  .container {
+    margin-left:2%;
+    margin-right:2%;
+    margin-top: 5%;
+    /* display: flex; */
+    /* margin-bottom: 5%; */
+    /* width: 70%; */
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+  }
+  textarea{
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 95%;
+    height: 200px;
+   /* padding: 12px; */
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   resize: vertical;
+  }
+
+}
+ @media screen and (max-width: 1300px) {
+   .heading{
+      color: #f2f2f2;
+      margin:10px;
+      /* width:40%; */
+
+      text-align: center;
+      /* padding: 1% 10%; */
+     text-decoration: none;
+     font-size: 30px;
+     float:left;
+   }
+
+ div .menu{
+ height: 5px;
+   top: 10px;
+   width: 30px;
+   border-radius: 10px;
+   background:black;
+   float: right;
+  }
+  button{
+    float:right;
+    margin:10px;
+    display:block;
+   margin-top:6px;
+  }
+  .active{
+    display:none;
+  }
+  .active.activate{
+    display:block;
+    width:100%;
+  }
+  }
+ </style>
+  </head>
+  <body onload="maintain()">
+    <header>
+      <nav>
+        <div class="topnav">
+  <div class="heading" id="heading">
+    <b>Spark foundation banking</b>
+  </div>
+  <button type="button" name="button" onclick="myfun()">
+  <div class="menu"></div><br>
+  <div class="menu"></div><br>
+  <div class="menu" ></div></button>
+  <div class="" >
+    <a class="active" id="active" href="index.html">Home</a>
+    <a class="active" id="active2" href="send.html">Send Money</a>
+    <a class="active" id="active3" href="transactions.html">Transactions</a>
+    <a class="active" id="active4" href="user_login.html">User details</a>
+  </div>
+  </div>
+      </nav>
+
+    </header>
+    <div class="" id="abcd">
+
+    </div>
+    <div class="container">
+
+    <div class="message" id="message">
+
+    </div>
+<center>    <label for="" id="heading2">File the report</label><br></center>
+    <form class="" id="send" action="" method="post">
+      <textarea name="file" required></textarea>
+      <!-- <input type="text" name="file" value=""> -->
+      <input type="submit" name="submit" value="submit">
+    </form>
+    </div>
+<!-- <textarea name="file" required></textarea> -->
+
+
+   </body>
+   <script>
+   function myfun() {
+     // alert("hello");
+     var x = document.getElementById("active");
+     if (x.className === "active") {
+       x.className += " activate";
+     } else {
+       x.className = "active";
+     }
+     x = document.getElementById("active2");
+     if (x.className === "active") {
+       x.className += " activate";
+     } else {
+       x.className = "active";
+     }
+     x = document.getElementById("active3");
+     if (x.className === "active") {
+       x.className += " activate";
+     } else {
+       x.className = "active";
+     }
+     x = document.getElementById("active4");
+     if (x.className === "active") {
+       x.className += " activate";
+     } else {
+       x.className = "active";
+     }}
+function maintain(){
+   var url = window.location.href;
+         var index = url.indexOf("?");
+         var index1=url.indexOf("sent");
+         var account_no="";
+         if(index>0)
+         {account_no=url.slice(index+1);
+          if(index1>0){
+            account_no=url.slice(index+1,index1);
+           document.getElementById("message").innerHTML="Your report is sent to the manager";
+         }}
+         // else {
+         // account_no="";
+         // }
+         var xmlhttp = new XMLHttpRequest();
+         xmlhttp.onreadystatechange = function() {
+           if (this.readyState == 4 && this.status == 200) {
+             document.getElementById("abcd").innerHTML= this.responseText;
+           }
+         };
+         //document.getElementById("show_accounts").innerHTML= "hello";
+         xmlhttp.open("GET","name.php?acc_no="+account_no,true);
+         xmlhttp.send();
+   x=document.getElementById("active2");
+   x.href="send.html?".concat(account_no);
+   x=document.getElementById("send");
+   x.action="reports.php?".concat(account_no);
+   x=document.getElementById("active3");
+   x.href="transactions.html?".concat(account_no);
+   x=document.getElementById("active4");
+   x.href="user_login.html?".concat(account_no);}
+   </script>
+   </html>

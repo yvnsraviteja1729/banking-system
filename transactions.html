@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <meta charset="utf-8" >
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <title>Transactions</title>
+     <style media="screen">
+    body {
+    margin: 0;
+    min-width:300px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+ .topnav {
+   overflow: hidden;
+   width: 100%;
+   background-color: #333;
+ }
+
+ .topnav a {
+   float: right;
+   color: #f2f2f2;
+   text-align: center;
+   padding: 15px 15px;
+   text-decoration: none;
+   font-size: 20px;
+ }
+
+ .topnav a:hover {
+   background-color: #39F;
+   border-radius:5px;
+   color: white;
+ }
+
+ .heading{
+    color: #f2f2f2;
+    width:50%;
+    margin-top:5px;
+    text-align: center;
+    /* padding: 13px 20%; */
+   text-decoration: none;
+   font-size: 30px;
+   float:left;
+ }
+ button{
+   display:none;
+ }
+
+ footer{overflow: hidden;
+   width:100%;
+   height:200px;
+   background-color:#333;
+   color:white;
+   font-size:25px;
+   text-align:center;
+   padding-top: 0px;
+ }
+ .design{
+   margin-left:20%;
+   /* margin-right:20%; */
+   padding:5px;
+   margin-top:10px;
+   display:inline-block;
+   width:60%;
+   color:black;
+   font-weight: bolder;
+   border:2px solid black;
+   background-color:rgb(153, 244, 150);
+   border-radius: 10px;
+ }
+ #abcd{
+   text-align: center;
+   width: 70%;
+   background-color: #999;
+   border-radius: 10px;
+   color:white;
+   font-size: 20px;
+   text-transform: capitalize;
+   text-shadow: 5px;
+   margin-left: 15%;
+   float: left;
+   height: auto;
+ }
+@media screen and (max-width: 800px) {
+ .design{
+   margin-left:10px;
+   margin-right:10px;
+   padding:5px;
+   margin-top:10px;
+   display:inline-block;
+   width:90%;
+   font-weight: bolder;
+   border:2px solid black;
+   color:black;
+   background-color:rgb(153, 244, 150);
+ }}
+ @media screen and (max-width: 1300px) {
+   .heading{
+      color: #f2f2f2;
+      margin:10px;
+      /* width:40%; */
+
+      text-align: center;
+      /* padding: 1% 10%; */
+     text-decoration: none;
+     font-size: 30px;
+     float:left;
+   }
+
+ div .menu{
+ height: 5px;
+   top: 10px;
+   width: 30px;
+   border-radius: 10px;
+   background:black;
+   float: right;
+  }
+  button{
+    float:right;
+    margin:10px;
+    display:block;
+   margin-top:6px;
+  }
+  .active{
+    display:none;
+  }
+  .active.activate{
+    display:block;
+    width:100%;
+  }
+  }
+ </style>
+  </head>
+  <body onload="getTransactions()">
+    <header>
+      <nav>
+        <div class="topnav">
+  <div class="heading" id="heading">
+    <b>Spark foundation banking</b>
+  </div>
+  <button type="button" name="button" onclick="myfun()">
+  <div class="menu"></div><br>
+  <div class="menu"></div><br>
+  <div class="menu" ></div></button>
+  <div class="" >
+    <a class="active" id="active" href="index.html">Home</a>
+    <!-- <a class="active" id="active1" href="accounts.html">Accounts</a> -->
+   <a class="active" id="active4" href="user_login.html">User details</a>
+    <a class="active" id="active2" href="send.html">Send money</a>
+    <a class="active" id="active3" href="reports.html">File Report</a>
+
+  </div>
+  </div>
+      </nav>
+
+    </header>
+    <div class="" id="abcd">
+
+    </div>
+   <div class="getTransactions" id="getTransactions">
+
+   </div>
+   </body>
+   <script>
+   function myfun() {
+     // alert("hello");
+     var x = document.getElementById("active");
+     if (x.className === "active") {
+       x.className += " activate";
+     } else {
+       x.className = "active";
+     }
+     x = document.getElementById("active2");
+     if (x.className === "active") {
+       x.className += " activate";
+     } else {
+       x.className = "active";
+     }
+     x = document.getElementById("active3");
+     if (x.className === "active") {
+       x.className += " activate";
+     } else {
+       x.className = "active";
+     }
+     x = document.getElementById("active4");
+     if (x.className === "active") {
+       x.className += " activate";
+     } else {
+       x.className = "active";
+     }
+   }
+   function getTransactions()
+  {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("getTransactions").innerHTML= this.responseText;
+      }
+    };
+    var url = window.location.href;
+          var index = url.indexOf("?");
+          if(index>0)
+          var account_no=url.slice(index+1);
+          else {
+            var account_no="";
+          }
+    xmlhttp.open("GET","transactions.php?acc="+account_no,true);
+    xmlhttp.send();
+    x=document.getElementById("active2");
+    x.href="send.html?".concat(account_no);
+    x=document.getElementById("active3");
+    x.href="reports.html?".concat(account_no);
+    x=document.getElementById("active4");
+    x.href="user_login.html?".concat(account_no);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("abcd").innerHTML= this.responseText;
+      }
+    };
+    //document.getElementById("show_accounts").innerHTML= "hello";
+    xmlhttp.open("GET","name.php?acc_no="+account_no,true);
+    xmlhttp.send();
+  }
+   </script>
+   </html>

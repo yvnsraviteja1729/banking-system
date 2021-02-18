@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <meta charset="utf-8" >
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <title>Transactions</title>
+     <style media="screen">
+    body {
+    margin: 0;
+    min-width:300px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+.container {margin-left:15%;
+  margin-top: auto;
+  margin-bottom: 5%;
+  width: 70%;
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 95%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type=submit]:hover {
+  background-color: #45d049;
+}
+
+input[type=submit]
+{
+  background-color: #4C8F50;
+  color: white;
+  padding: 10px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border: none;
+  width: 60%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+label {
+  font-size: 25px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+  display: block;
+}
+.balance{
+  text-align: center;
+  width: 45%;
+  background-color: #999;
+  border-radius: 10px;
+  color:white;
+  font-size: 20px;
+  text-transform: capitalize;
+  text-shadow: 5px;
+  font-weight: bolder;
+  /* margin-left: 15%; */
+  margin-bottom: 10px;
+  float: right;
+  height: auto;
+}
+ .topnav {
+   overflow: hidden;
+   background-color: #333;
+ }
+
+ .topnav a {
+   float: right;
+   color: #f2f2f2;
+   text-align: center;
+   padding: 15px 15px;
+   text-decoration: none;
+   font-size: 20px;
+ }
+
+ .topnav a:hover {
+   background-color: #39F;
+   border-radius:5px;
+   color: white;
+ }
+
+ .heading{
+    color: #f2f2f2;
+    width:50%;
+    margin-top:5px;
+    text-align: center;
+    /* padding: 13px 20%; */
+   text-decoration: none;
+   font-size: 30px;
+   float:left;
+ }
+ button{
+   display:none;
+ }
+
+ footer{overflow: hidden;
+   width:100%;
+   height:200px;
+   background-color:#333;
+   color:white;
+   font-size:25px;
+   text-align:center;
+   padding-top: 0px;
+ }
+
+ #abcd{
+   text-align: center;
+   width: 50%;
+   background-color: #999;
+   border-radius: 10px;
+   color:white;
+   font-size: 20px;
+   text-transform: capitalize;
+   text-shadow: 5px;
+   font-weight: bolder;
+   /* margin-left: 15%; */
+   float: left;
+   height: auto;
+ }
+
+ @media screen and (max-width:800px)
+ {.container {margin-left:5%;
+   margin-top: 10%;
+   margin-bottom: 5%;
+   width: 87%;
+   background-color: #f2f2f2;
+   padding: 5px 20px 15px 20px;
+   border: 1px solid lightgrey;
+   border-radius: 3px;
+ }
+
+
+ }
+ @media screen and (max-width: 1300px) {
+   .heading{
+      color: #f2f2f2;
+      margin:10px;
+      /* width:40%; */
+
+      text-align: center;
+      /* padding: 1% 10%; */
+     text-decoration: none;
+     font-size: 30px;
+     float:left;
+   }
+
+ div .menu{
+ height: 5px;
+   top: 10px;
+   width: 30px;
+   border-radius: 10px;
+   background:black;
+   float: right;
+  }
+  button{
+    float:right;
+    margin:10px;
+    display:block;
+   margin-top:6px;
+  }
+  .active{
+    display:none;
+  }
+  .active.activate{
+    display:block;
+    width:100%;
+  }
+  }
+ </style>
+  </head>
+  <body onload="getnames()">
+    <header>
+      <nav>
+        <div class="topnav">
+  <div class="heading" id="heading">
+    <b>Spark foundation banking</b>
+  </div>
+  <button type="button" name="button" onclick="myfun()">
+  <div class="menu"></div><br>
+  <div class="menu"></div><br>
+  <div class="menu" ></div></button>
+  <div class="" >
+    <a class="active" id="active" href="index.html">Home</a>
+    <!-- <a class="active" id="active1" href="send.html">Send Money</a> -->
+      <a class="active" id="active4" href="user_login.html">User details</a>
+    <a class="active" id="active2" href="transactions.html">Recent Transactions</a>
+    <a class="active" id="active3" href="reports.html">File Report</a>
+
+
+  </div>
+  </div>
+      </nav>
+
+    </header>
+    <div class="" id="abcd">
+
+    </div>
+    <div class="balance" id="balance">
+
+    </div>
+   <div class="message" id="message">
+
+   </div>
+   <div class="container">
+
+     <div class="send_here" id="send_here">
+       <form class="" action="send.php" method="post" onsubmit="submit()">
+         <label for="sender">Sender account number</label><br>
+         <input type="text" name="sender_acc" id="sender_acc" value=""><br>
+         <label for="">Recipient account number</label>
+         <input type="text" name="recipient" onchange="getAccountHolder(this.value)" value="" required>
+         <div class="account_holder" id="account_holder">
+
+         </div>
+         <label for="">Amount to transfer</label>
+         <input type="text" name="amount" value="" required><br>
+         <input type="submit" name="submit" value="transfer" >
+       </form>
+     </div>
+   </div>
+   </body>
+   <script>
+   function submit(){
+     var r = confirm("do you really want to send the money!");
+     if (r == true) {
+    return 1;
+     } else {
+       return 0}
+   }
+
+   function myfun() {
+     // alert("hello");
+     var x = document.getElementById("active");
+     if (x.className === "active") {
+       x.className += " activate";
+     } else {
+       x.className = "active";
+     }
+     x = document.getElementById("active4");
+     if (x.className === "active") {
+       x.className += " activate";
+     } else {
+       x.className = "active";
+     }
+     x = document.getElementById("active2");
+     if (x.className === "active") {
+       x.className += " activate";
+     } else {
+       x.className = "active";
+     }
+     x = document.getElementById("active3");
+     if (x.className === "active") {
+       x.className += " activate";
+     } else {
+       x.className = "active";
+     }
+   }
+
+   function getnames() {
+     var url = window.location.href;
+           var index = url.indexOf("?");
+           var check=url.indexOf("?success");
+           var account_no;
+           var check2=url.indexOf("?failure");
+           if(check<0)
+           {
+           if(check2<0)
+           {
+              account_no=url.slice(index+1);}
+           else { window.alert("transaction failed");
+             document.getElementById("message").innerHTML="";
+              account_no=url.slice(index+1,check2);
+           }}
+
+           else {window.alert("transaction is succesful");
+             document.getElementById("message").innerHTML="";
+              account_no=url.slice(index+1,check);
+           }
+             document.getElementById("sender_acc").value=account_no;
+             x=document.getElementById("active2");
+             x.href="send.html?".concat(account_no);
+             x=document.getElementById("active3");
+             x.href="reports.html?".concat(account_no);
+             x=document.getElementById("active4");
+             x.href="user_login.html?".concat(account_no);
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("show_accounts").innerHTML= this.responseText;
+    }
+  };
+  //document.getElementById("show_accounts").innerHTML= "hello";
+  xmlhttp.open("GET","send.php",true);
+  xmlhttp.send();
+  xmlhttp = new XMLHttpRequest();
+ xmlhttp.onreadystatechange = function() {
+ if (this.readyState == 4 && this.status == 200) {
+   document.getElementById("balance").innerHTML= this.responseText;
+ }
+ };
+ //document.getElementById("show_accounts").innerHTML= "hello";
+ xmlhttp.open("GET","amount.php?acc_no="+account_no,true);
+ xmlhttp.send();
+ x=document.getElementById("active2");
+ x.href="transactions.html?".concat(account_no);
+ x=document.getElementById("active3");
+ x.href="reports.html?".concat(account_no);
+ var xmlhttp = new XMLHttpRequest();
+ xmlhttp.onreadystatechange = function() {
+   if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("abcd").innerHTML= this.responseText;
+   }
+ };
+ //document.getElementById("show_accounts").innerHTML= "hello";
+ xmlhttp.open("GET","name.php?acc_no="+account_no,true);
+ xmlhttp.send();
+  }
+  function getAccountHolder(str)
+  {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("account_holder").innerHTML= this.responseText;
+      }
+    };
+    //document.getElementById("show_accounts").innerHTML= "hello";
+    xmlhttp.open("GET","recipient.php?acc_no="+str,true);
+    xmlhttp.send();
+
+  }
+  var url = window.location.href;
+        var index = url.indexOf("?");
+        if(index>0)
+        var account_no=url.slice(index+1);
+        else {
+          var account_no="";
+        }
+
+  x=document.getElementById("active2");
+  x.href="send.html?".concat(account_no);
+  x=document.getElementById("active3");
+  x.href="reports.html?".concat(account_no);
+  x=document.getElementById("active4");
+  x.href="user_login.html?".concat(account_no);
+
+   </script>
+   </html>

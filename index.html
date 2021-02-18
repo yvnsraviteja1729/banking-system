@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>online banking</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style media="screen">
+   body {
+   margin: 0;
+   min-width:300px;
+
+   font-family: Arial, Helvetica, sans-serif;
+ }
+ * {
+   box-sizing: border-box;
+ }
+.topnav {
+  overflow: auto;
+  width: 100%;
+  background-color: #333;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px 15px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.topnav a:hover {
+  background-color: #39F;
+  border-radius:5px;
+  color: white;
+}
+.responsive {
+  width: 100%;
+  height: 670px;
+}
+/* .topnav a.active {
+  background-color: #8CAFD0;
+  color: white;
+} */
+.heading{
+   color: #f2f2f2;
+   width:60%;
+   margin-top:5px;
+   text-align: center;
+   /* padding: 13px 20%; */
+  text-decoration: none;
+  font-size: 30px;
+  float:left;
+}
+button{
+  display:none;
+}
+
+footer{
+  overflow: auto;
+  width:100%;
+  height:auto;
+  background-color:#333;
+  color:white;
+  font-size:25px;
+  text-align:center;
+  padding-top: 0px;
+}
+@media screen and (max-width: 1300px) {
+  body{
+    overflow: auto;
+  }
+  footer{
+  margin: 0px;
+  }
+  .heading{
+     color: #f2f2f2;
+     margin:10px;
+     /* width:40%; */
+
+     text-align: center;
+     /* padding: 1% 10%; */
+    text-decoration: none;
+    font-size: 30px;
+    float:left;
+  }
+  .responsive {
+    width: 100%;
+    height: 500px;
+  }
+div .menu{
+height: 5px;
+  top: 10px;
+  width: 30px;
+  border-radius: 10px;
+  background:black;
+  float: right;
+ }
+ button{
+   float:right;
+   margin:10px;
+   display:block;
+  margin-top:6px;
+ }
+ .active{
+   display:none;
+ }
+ .active.activate{
+   display:block;
+   width:100%;
+ }
+ }
+</style>
+<!-- <script src="one.js">< /script> -->
+
+   </head>
+  <body>
+    <header>
+      <nav>
+        <div class="topnav">
+  <div class="heading" id="heading">
+    <b>Spark foundation banking</b>
+  </div>
+  <button type="button" name="button" onclick="myfun()">
+  <div class="menu"></div><br>
+  <div class="menu"></div><br>
+  <div class="menu" ></div></button>
+  <div class="" >
+    <a class="active" id="active" href="index.html">Home</a>
+    <a class="active" id="active1" href="accounts.html">Accounts</a>
+    <a class="active" id="active2" href="transactions1.html">Transactions</a>
+    <a class="active" id="active3" href="reports1.html">Reports</a>
+
+  </div>
+  </div>
+      </nav>
+
+    </header>
+  <img src="bank.jpg" alt="spark bank image" class="responsive" >
+  <footer>
+    <div class="contact us">
+      <h3>Contact us</h3>
+      <h4>Phone no:-9394993332 <br> panjagutta,hyderabad</h4>
+    </div>
+  </footer>
+  </body>
+  <script>
+  function myfun() {
+    // alert("hello");
+    var x = document.getElementById("active");
+    if (x.className === "active") {
+      x.className += " activate";
+    } else {
+      x.className = "active";
+    }
+    x = document.getElementById("active1");
+    if (x.className === "active") {
+      x.className += " activate";
+    } else {
+      x.className = "active";
+    }
+    x = document.getElementById("active2");
+    if (x.className === "active") {
+      x.className += " activate";
+    } else {
+      x.className = "active";
+    }
+    x = document.getElementById("active3");
+    if (x.className === "active") {
+      x.className += " activate";
+    } else {
+      x.className = "active";
+    }
+  }
+  </script>
+</html>
